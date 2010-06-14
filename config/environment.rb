@@ -21,7 +21,6 @@ Rails::Initializer.run do |config|
   # config.gem "aws-s3", :lib => "aws/s3"
   config.gem "imdb"
   config.gem "formtastic"
-  config.gem "nifty-generators"
   config.gem "jrails"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
