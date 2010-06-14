@@ -1,0 +1,52 @@
+<% form_for @movie do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :rating %><br />
+    <%= f.text_field :rating %>
+  </p>
+  <p>
+    <%= f.label :duration %><br />
+    <%= f.text_field :duration %>
+  </p>
+  <p>
+    <%= f.label :directed_by %><br />
+    <%= f.text_field :directed_by %>
+  </p>
+  <p>
+    <%= f.label :cast %><br />
+    <%= f.text_field :cast %>
+  </p>
+  <p>
+    <%= f.label :genre %><br />
+    <%= f.text_field :genre %>
+  </p>
+  <p>
+    <%= f.label :plot %><br />
+    <%= f.text_field :plot %>
+  </p>
+  <p>
+    <%= f.label :poster_url %><br />
+    <%= f.text_field :poster_url %>
+  </p>
+  <p>
+    <%= f.label :imdb %><br />
+    <%= f.text_field :imdb %>
+  </p>
+  <p>
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </p>
+  <p>
+    <%= f.label :media_id %><br />
+    <%= f.text_field :media_id %>
+  </p>
+  <p>
+    <%= f.label :loaned_to %><br />
+    <%= f.text_field :loaned_to %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

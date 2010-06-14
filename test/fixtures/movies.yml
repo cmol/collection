@@ -1,0 +1,27 @@
+one:
+  title: MyString
+  rating: 1.5
+  duration: 1
+  directed_by: MyString
+  cast: MyString
+  genre: MyString
+  plot: MyString
+  poster_url: MyString
+  imdbid: 
+  user_id: 1
+  media_id: 1
+  loaned_to: MyString
+
+two:
+  title: MyString
+  rating: 1.5
+  duration: 1
+  directed_by: MyString
+  cast: MyString
+  genre: MyString
+  plot: MyString
+  poster_url: MyString
+  imdbid: 
+  user_id: 1
+  media_id: 1
+  loaned_to: MyString

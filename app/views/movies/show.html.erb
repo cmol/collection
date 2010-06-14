@@ -1,0 +1,56 @@
+<% title "Movie" %>
+
+<p>
+  <strong>Title:</strong>
+  <%=h @movie.title %>
+</p>
+<p>
+  <strong>Rating:</strong>
+  <%=h @movie.rating %>
+</p>
+<p>
+  <strong>Duration:</strong>
+  <%=h @movie.duration %>
+</p>
+<p>
+  <strong>Directed By:</strong>
+  <%=h @movie.directed_by %>
+</p>
+<p>
+  <strong>Cast:</strong>
+  <%=h @movie.cast %>
+</p>
+<p>
+  <strong>Genre:</strong>
+  <%=h @movie.genre %>
+</p>
+<p>
+  <strong>Plot:</strong>
+  <%=h @movie.plot %>
+</p>
+<p>
+  <strong>Poster Url:</strong>
+  <%=h @movie.poster_url %>
+</p>
+<p>
+  <strong>Imdbid:</strong>
+  <%=h @movie.imdbid %>
+</p>
+<p>
+  <strong>User:</strong>
+  <%=h @movie.user_id %>
+</p>
+<p>
+  <strong>Media:</strong>
+  <%=h @movie.media_id %>
+</p>
+<p>
+  <strong>Loaned To:</strong>
+  <%=h @movie.loaned_to %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_movie_path(@movie) %> |
+  <%= link_to "Destroy", @movie, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", movies_path %>
+</p>
