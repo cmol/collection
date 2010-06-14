@@ -22,6 +22,7 @@ Rails::Initializer.run do |config|
   config.gem "imdb"
   config.gem "formtastic"
   config.gem "nifty-generators"
+  config.gem "jrails"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
