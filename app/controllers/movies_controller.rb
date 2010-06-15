@@ -9,6 +9,7 @@ class MoviesController < ApplicationController
   
   def new
     @movie = Movie.new
+    @movie_ss = Imdb::Movie.new("1630254")
   end
   
   def create
@@ -41,4 +42,21 @@ class MoviesController < ApplicationController
     flash[:notice] = "Successfully destroyed movie."
     redirect_to movies_url
   end
+  
+  def imdb_search
+  	@imdb_search = Imdb::Search.new(params[:id])
+   	respond_to do | format | # Making sure people without javascript can use the site
+    	format.html { redirect_to "/movies" }
+    	format.js { render :template => "movies/imdb_search.js.rjs" } # Renders ajax actions
+    end
+  end
+  
+  def imdb_fetch
+  	@imdb_fetch = Imdb::Movie.new(params[:id])
+  	respond_to do | format | # Making sure people without javascript can use the site
+    	format.html { redirect_to "/movies" }
+    	format.js { render :template => "movies/imdb_fetch.js.rjs" } # Renders ajax actions
+    end
+  end
+
 end

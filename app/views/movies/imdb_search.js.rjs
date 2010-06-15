@@ -1,0 +1,29 @@
+if @imdb_search.movies.size > 1
+	list = ""
+	@imdb_search.movies.each do | movie |
+		list << link_to_remote( "#{movie.title} (#{movie.year})", { :url => { :action => :imdb_fetch, :id => movie.id } }, { :title => "Fetch this movie", :class => "imdb_fetch" } )
+		list << "<br />"
+	end
+	page.replace_html :search_list, list
+elsif @imdb_search.movies.size == 1
+	movie = Imdb::Movie.new(@imdb_search.movies.first.id)
+	page[:movie_title].value = movie.title
+	page[:movie_rating].value = movie.rating
+	page[:movie_duration].value =	movie.length
+	page[:movie_directed_by].value = movie.director
+	page[:movie_cast].value = movie.cast_members
+	page[:movie_genre].value = movie.genres
+	page[:movie_plot].value = movie.plot
+	page[:movie_poster_url].value = movie.poster
+	page[:movie_imdb].value = movie.id
+else
+	#flash[:notice] = "Sorry! No movies found!"
+	page.alert('Sorry! No movies found!')
+end
+
+
+#page.delay(3) do
+#	page.visual_effect :fade, 'flash_notice', :duration => 3
+#end
+#
+#flash.discard
