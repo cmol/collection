@@ -14,6 +14,7 @@ class MoviesController < ApplicationController
   
   def create
     @movie = Movie.new(params[:movie])
+    @movie.user = current_user
     if @movie.save
       flash[:notice] = "Successfully created movie."
       redirect_to @movie
@@ -28,6 +29,7 @@ class MoviesController < ApplicationController
   
   def update
     @movie = Movie.find(params[:id])
+    @movie.user = current_user
     if @movie.update_attributes(params[:movie])
       flash[:notice] = "Successfully updated movie."
       redirect_to @movie
