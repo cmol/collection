@@ -1,5 +1,6 @@
 movie = @imdb_fetch
 page[:movie_title].value = movie.title
+page[:movie_year].value = movie.year
 page[:movie_rating].value = movie.rating
 page[:movie_duration].value =	movie.length
 page[:movie_directed_by].value = movie.director

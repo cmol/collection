@@ -11,7 +11,7 @@
   </tr>
   <% for movie in @movies %>
     <tr>
-      <td><%=h movie.title %></td>
+      <td><%=h movie.title %> (<%=h movie.year %>)</td>
       <td><%=h movie.rating %></td>
       <td><%=h movie.genre %></td>
       <td><%=h movie.imdb %></td>
