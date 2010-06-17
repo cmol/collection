@@ -1,4 +1,6 @@
 class MoviesController < ApplicationController
+  before_filter :require_user
+  
   def index
     @movies = current_user.movies
   end
