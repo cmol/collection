@@ -3,6 +3,9 @@
 <%= render :partial => 'form' %>
 
 <p>
-  <%= link_to "Show", @user %> |
-  <%= link_to "View All", users_path %>
+  <%= link_to "Show", @user %> 
+  <% if current_user.admin == true -%>
+  	| <%= link_to "View All", users_path %>
+  <% end -%>
+  
 </p>
