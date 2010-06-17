@@ -48,7 +48,7 @@ class UsersController < ApplicationController
   private
   
   def get_user # This method should make the user getting a little more DRY
-  	if User.find(params[:id]).id == current_user.id || is_admin
+  	if User.find(params[:id]).id == current_user.id || current_user.admin == true
     	return User.find(params[:id]) # Shows user if requested user is current_user, or current_user is admin
     else
     	return User.find(current_user)
