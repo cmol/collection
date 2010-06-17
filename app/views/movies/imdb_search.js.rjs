@@ -1,12 +1,15 @@
 if @imdb_search.movies.size > 1
 	list = ""
 	@imdb_search.movies.each do | movie |
-		list << link_to_remote( "#{movie.title} (#{movie.year})", { :url => { :action => :imdb_fetch, :id => movie.id } }, { :title => "Fetch this movie", :class => "imdb_fetch" } )
+		list << link_to_remote( "#{movie.title} (#{movie.year})", { :url => { :action => :imdb_fetch, :id => movie.id }, :loading => "$('#search_list').slideUp(\"slow\")" }, { :title => "Fetch this movie", :class => "imdb_fetch" } )
 		list << "<br />"
 	end
+	page[:search_list].hide
 	page.replace_html :search_list, list
+	page.visual_effect :toggle_slide, '#search_list', :duration => 1
 elsif @imdb_search.movies.size == 1
 	movie = Imdb::Movie.new(@imdb_search.movies.first.id)
+	page.hide :search_list
 	page[:movie_title].value = movie.title
 	page[:movie_year].value = movie.year
 	page[:movie_rating].value = movie.rating

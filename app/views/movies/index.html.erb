@@ -15,7 +15,7 @@
       <td><%=h movie.rating %></td>
       <td><%=h movie.genre %></td>
       <td><%=h movie.imdb %></td>
-      <td><%=h movie.media_id %></td>
+      <td><%=h movie.media.name %></td>
       <td><%=h movie.loaned_to %></td>
       <td><%= link_to "Show", movie %></td>
       <td><%= link_to "Edit", edit_movie_path(movie) %></td>

@@ -7,7 +7,8 @@
 		<%= link_to_remote( 'Search...', { 
    :url => { :action => :imdb_search},
    :with => "'id=' + $('#movie_title').val()",
-   :title => "Search for this movie" }
+   :title => "Search for this movie",
+   :loading => "$('#search_list').effect(\"highlight\", {}, 9000), $('#search_list').html(\"Searching...\")" }
 ) %>
 		<%= f.input :year %>
 		<%= f.input :rating %>

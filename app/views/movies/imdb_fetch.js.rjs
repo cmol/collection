@@ -1,3 +1,4 @@
+page.hide :search_list
 movie = @imdb_fetch
 page[:movie_title].value = movie.title
 page[:movie_year].value = movie.year
