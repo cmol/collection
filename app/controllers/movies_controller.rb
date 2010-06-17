@@ -1,15 +1,14 @@
 class MoviesController < ApplicationController
   def index
-    @movies = Movie.all
+    @movies = current_user.movies
   end
   
   def show
-    @movie = Movie.find(params[:id])
+    @movie = get_movie
   end
   
   def new
     @movie = Movie.new
-    @movie_ss = Imdb::Movie.new("1630254")
   end
   
   def create
@@ -24,11 +23,11 @@ class MoviesController < ApplicationController
   end
   
   def edit
-    @movie = Movie.find(params[:id])
+    @movie = get_movie
   end
   
   def update
-    @movie = Movie.find(params[:id])
+    @movie = get_movie
     @movie.user = current_user
     if @movie.update_attributes(params[:movie])
       flash[:notice] = "Successfully updated movie."
@@ -39,7 +38,7 @@ class MoviesController < ApplicationController
   end
   
   def destroy
-    @movie = Movie.find(params[:id])
+    @movie = get_movie
     @movie.destroy
     flash[:notice] = "Successfully destroyed movie."
     redirect_to movies_url
@@ -61,4 +60,14 @@ class MoviesController < ApplicationController
     end
   end
 
+	private
+	
+	def get_movie # This method should make the vm getting a little more DRY
+  	if Movie.find(params[:id]).user_id == current_user.id
+    	return Movie.find(params[:id]) # Shows movieif current_user owns movie
+    else
+    	flash[:error] = "You should not mess with other peoples movies!"
+    	redirect_to root_url # redirect people to root_url, if they should not see this movie.
+    end
+  end
 end
