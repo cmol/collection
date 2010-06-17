@@ -53,6 +53,8 @@ class ApplicationController < ActionController::Base
   	if current_user && current_user.admin == true
   		return true
   	else
+  		flash[:warning] = "You are not allowed to tangle with that"
+  		redirect_to root_url
   		return false
   	end
   end
