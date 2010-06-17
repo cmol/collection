@@ -1,4 +1,7 @@
 class MediasController < ApplicationController
+  before_filter :require_user
+  before_filter :is_admin
+  
   def index
     @medias = Media.all
   end
