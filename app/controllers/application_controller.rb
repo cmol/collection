@@ -48,5 +48,13 @@ class ApplicationController < ActionController::Base
     redirect_to(session[:return_to] || default)
     session[:return_to] = nil
   end
+  
+  def is_admin
+  	if current_user && current_user.admin == true
+  		return true
+  	else
+  		return false
+  	end
+  end
 
 end
