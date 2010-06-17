@@ -1,0 +1,12 @@
+<% title "Media" %>
+
+<p>
+  <strong>Name:</strong>
+  <%=h @media.name %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_media_path(@media) %> |
+  <%= link_to "Destroy", @media, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", medias_path %>
+</p>

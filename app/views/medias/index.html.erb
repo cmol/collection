@@ -1,0 +1,17 @@
+<% title "Medias" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% for media in @medias %>
+    <tr>
+      <td><%=h media.name %></td>
+      <td><%= link_to "Show", media %></td>
+      <td><%= link_to "Edit", edit_media_path(media) %></td>
+      <td><%= link_to "Destroy", media, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Media", new_media_path %></p>
