@@ -1,53 +1,46 @@
-<% title "Movie" %>
+<% title @movie.title %>
 
-<p>
-  <strong>Title:</strong>
-  <%=h @movie.title %>
-</p>
-<p>
-  <strong>Rating:</strong>
-  <%=h @movie.rating %>
-</p>
-<p>
-  <strong>Duration:</strong>
-  <%=h @movie.duration %>
-</p>
-<p>
-  <strong>Directed By:</strong>
-  <%=h @movie.directed_by %>
-</p>
-<p>
-  <strong>Cast:</strong>
-  <%=h @movie.cast %>
-</p>
-<p>
-  <strong>Genre:</strong>
-  <%=h @movie.genre %>
-</p>
-<p>
-  <strong>Plot:</strong>
-  <%=h @movie.plot %>
-</p>
-<p>
-  <strong>Poster Url:</strong>
-  <%=h @movie.poster_url %>
-</p>
-<p>
-  <strong>Imdb:</strong>
-  <%=h @movie.imdb %>
-</p>
-<p>
-  <strong>User:</strong>
-  <%=h @movie.user_id %>
-</p>
-<p>
-  <strong>Media:</strong>
-  <%=h @movie.media_id %>
-</p>
-<p>
-  <strong>Loaned To:</strong>
-  <%=h @movie.loaned_to %>
-</p>
+<div id="movie_image">
+	<%= link_to image_tag(@movie.poster_url, :alt => @movie.title, :class => "movie_poster"), @movie.poster_url %>
+</div>
+<div id="movie_info">
+	<p>
+		<strong>Rating:</strong>
+		<%=h @movie.rating %>
+	</p>
+	<p>
+		<strong>Duration:</strong>
+		<%=h @movie.duration %> minutes (/episodes)
+	</p>
+	<p>
+		<strong>Directed By:</strong>
+		<%=h @movie.directed_by %>
+	</p>
+	<p>
+		<strong>Cast:</strong>
+		<%=h @movie.cast %>
+	</p>
+	<p>
+		<strong>Genre:</strong>
+		<%=h @movie.genre %>
+	</p>
+	<p>
+		<strong>Plot:</strong>
+		<%=h @movie.plot %>
+	</p>
+	<p>
+		<strong>Imdb:</strong>
+		<%=h @movie.imdb %>
+	</p>
+	<p>
+		<strong>Media:</strong>
+		<%=h @movie.media.name %>
+	</p>
+	<p>
+		<strong>Loaned To:</strong>
+		<%=h @movie.loaned_to %>
+	</p>	
+</div>
 
 <p>
   <%= link_to "Edit", edit_movie_path(@movie) %> |

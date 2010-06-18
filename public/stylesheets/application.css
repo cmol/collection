@@ -79,3 +79,13 @@ a {
   font-size: 12px;
   list-style: disc;
 }
+
+/*Below this line are my own css*/
+
+.movie_poster {
+	width: 200px;
+}
+
+#movie_image {
+	float: right;
+}
