@@ -2,7 +2,11 @@ class MoviesController < ApplicationController
   before_filter :require_user
   
   def index
-    @movies = current_user.movies
+    @movies = current_user.movies.find_all_by_wishlist(false)
+  end
+  
+  def wishlist
+  	@movies = current_user.movies.find_all_by_wishlist(true)
   end
   
   def show
