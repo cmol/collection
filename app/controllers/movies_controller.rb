@@ -3,12 +3,12 @@ class MoviesController < ApplicationController
   
   def index
 	  sort = params[:sort] ? sort = params[:sort]+", movies.title" : sort = "movies.title"
-    @movies = current_user.movies.find(:all, :conditions => ["movies.wishlist = ?", false], :order => sort)
+    @movies = current_user.movies.paginate :conditions => ["movies.wishlist = ?", false], :order => sort, :page => params[:page]
   end
   
   def wishlist
   	sort = params[:sort] ? sort = params[:sort]+", movies.title" : sort = "movies.title"
-  	@movies = current_user.movies.find(:all, :conditions => ["movies.wishlist = ?", true], :order => sort)
+  	@movies = current_user.movies.paginate :conditions => ["movies.wishlist = ?", false], :order => sort, :page => params[:page]
   end
   
   def show
