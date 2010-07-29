@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100617102045) do
+ActiveRecord::Schema.define(:version => 20100729081506) do
 
   create_table "medias", :force => true do |t|
     t.string   "name"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20100617102045) do
     t.datetime "updated_at"
     t.integer  "imdb"
     t.integer  "year"
+    t.boolean  "wishlist"
   end
 
   create_table "users", :force => true do |t|
