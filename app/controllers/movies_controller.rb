@@ -2,11 +2,13 @@ class MoviesController < ApplicationController
   before_filter :require_user
   
   def index
-    @movies = current_user.movies.find(:all, :conditions => ["movies.wishlist = ?", false], :order => "movies.title")
+	  sort = params[:sort] ? sort = params[:sort]+", movies.title" : sort = "movies.title"
+    @movies = current_user.movies.find(:all, :conditions => ["movies.wishlist = ?", false], :order => sort)
   end
   
   def wishlist
-  	@movies = current_user.movies.find(:all, :conditions => ["movies.wishlist = ?", true], :order => "movies.title")
+  	sort = params[:sort] ? sort = params[:sort]+", movies.title" : sort = "movies.title"
+  	@movies = current_user.movies.find(:all, :conditions => ["movies.wishlist = ?", true], :order => sort)
   end
   
   def show
