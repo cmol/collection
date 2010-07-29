@@ -1,14 +1,28 @@
 class MoviesController < ApplicationController
   before_filter :require_user
   
+  INDEX_SORT = SortIndex::Config.new(
+    {'title' => 'title'},
+    {
+      'rating' => 'rating',
+      'genre' => 'genre',
+      'imdb' => 'imdb',
+      'media_id' => 'media_id',
+      'loaned_to' => 'loaned_to'
+    }
+    #SortIndex::SORT_KEY_ASC
+  )
+  
   def index
-	  sort = params[:sort] ? sort = params[:sort]+", movies.title" : sort = "movies.title"
-    @movies = current_user.movies.paginate :conditions => ["movies.wishlist = ?", false], :order => sort, :page => params[:page]
+  	@sortable = SortIndex::Sortable.new(params, INDEX_SORT)
+	  #sort = params[:sort] ? sort = params[:sort]+", movies.title" : sort = "movies.title"
+    @movies = current_user.movies.paginate :conditions => ["movies.wishlist = ?", false], :order => @sortable.order, :page => params[:page]
   end
   
   def wishlist
-  	sort = params[:sort] ? sort = params[:sort]+", movies.title" : sort = "movies.title"
-  	@movies = current_user.movies.paginate :conditions => ["movies.wishlist = ?", false], :order => sort, :page => params[:page]
+	  @sortable = SortIndex::Sortable.new(params, INDEX_SORT)
+  	#sort = params[:sort] ? sort = params[:sort]+", movies.title" : sort = "movies.title"
+  	@movies = current_user.movies.paginate :conditions => ["movies.wishlist = ?", false], :order => @sortable.order, :page => params[:page]
   end
   
   def show
