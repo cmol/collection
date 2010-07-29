@@ -22,7 +22,7 @@ class MoviesController < ApplicationController
   def wishlist
 	  @sortable = SortIndex::Sortable.new(params, INDEX_SORT)
   	#sort = params[:sort] ? sort = params[:sort]+", movies.title" : sort = "movies.title"
-  	@movies = current_user.movies.paginate :conditions => ["movies.wishlist = ?", false], :order => @sortable.order, :page => params[:page]
+  	@movies = current_user.movies.paginate :conditions => ["movies.wishlist = ?", true], :order => @sortable.order, :page => params[:page]
   end
   
   def show
