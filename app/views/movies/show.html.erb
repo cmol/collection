@@ -49,5 +49,5 @@
 <p>
   <%= link_to "Edit", edit_movie_path(@movie) %> |
   <%= link_to "Destroy", @movie, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", movies_path %>
+  <%= link_to "View All", @movie.wishlist ? wishlist_path : movies_path %>
 </p>
