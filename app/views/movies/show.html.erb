@@ -39,7 +39,12 @@
 	<p>
 		<strong>Loaned To:</strong>
 		<%=h @movie.loaned_to %>
-	</p>	
+	</p>
+	<p>
+		<strong>On Wishlist?:</strong>
+		<%=h @movie.wishlist ? "Yes" : "no" %>
+
+	</p>
 </div>
 
 <p>
