@@ -3,7 +3,7 @@ class MediasController < ApplicationController
   before_filter :is_admin
   
   def index
-    @medias = Media.all
+    @medias = Media.paginate :page => params[:page], :order => "name"
   end
   
   def show

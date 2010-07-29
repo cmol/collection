@@ -1,11 +1,11 @@
 <table>
   <tr>
-    <th>Title</th>
-    <th>Rating</th>
-    <th>Genre</th>
-    <th>Imdb</th>
-    <th>Media</th>
-    <th>Loaned To</th>
+  	<%= @sortable.header_link('title', 'Title') %>
+  	<%= @sortable.header_link('rating', 'Rating') %>
+  	<%= @sortable.header_link('genre', 'Genre') %>
+  	<%= @sortable.header_link('imdb', 'Imdb') %>
+  	<%= @sortable.header_link('media_id', 'Media') %>
+    <%= @sortable.header_link('loaned_to', 'Loaned to') %>
   </tr>
   <% for movie in @movies %>
     <tr>
@@ -21,3 +21,5 @@
     </tr>
   <% end %>
 </table>
+
+<%= will_paginate @movies %>
