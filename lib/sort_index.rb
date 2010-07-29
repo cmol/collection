@@ -32,7 +32,7 @@ module SortIndex
     # * _default_direction_ = String; optional, if not specified order will be DESC
     def initialize(default, columns, default_direction = nil)
       @columns = columns
-      @default_direction = default_direction || SORT_KEY_DESC
+      @default_direction = default_direction || SORT_KEY_ASC
       
       raise "default only supports 1 pair" if default.length != 1
       default.each_pair { |key, value|
