@@ -19,7 +19,7 @@
 		<%= f.input :plot %>
 		<%= f.input :poster_url %>
 		<%= f.input :imdb %>
-		<%= f.input :media %>
+		<%= f.input :media, :include_blank => false %>
 		<%= f.input :loaned_to %>
 		<%= f.input :wishlist %>
 	<% end -%>
